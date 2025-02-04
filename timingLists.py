@@ -3,7 +3,7 @@ from time import perf_counter
 fOut = open("times.csv", "w+")
 
 #Create the header for the file
-fOut.write(" , Add to Front, Add to End, Add to Middle, Remove from Front, Remove from Middle, Remove from End, Search Worst-Case\r\n")
+fOut.write(" , Add to Front, Add to Mid, Add to End, Remove from Front, Remove from Middle, Remove from End, Search Worst-Case\r\n")
 
 def ListTests(demoList):
     #List add to front
@@ -74,54 +74,28 @@ def dictionaryTests(demoDic):
 
     fOut.write(f"{t1},n/a,n/a,{t2},n/a,n/a,{t3}\r\n")
 
+#generate & test Lists
+for x in range(1,26):
+    fOut.write(f"{2**x},")
+    tempList = []
+    for x in range(2**x):
+        tempList.append(x)
 
+    ListTests(tempList)
 
-#small sized list
-fOut.write("Small List,")
-smallList = []
-for x in range(10**5):
-    smallList.append(x)
+#generate & test Dictionaries
+for x in range(1,26):
+    fOut.write(f"{2**x},")
+    tempDict = {}
+    for x in range(2**x):
+        tempDict[x] = x
 
-ListTests(smallList)
+    dictionaryTests(tempDict)
 
-#medium sized list
-fOut.write("Medium List,")
-mediumList = []
-for x in range(10**7):
-    mediumList.append(x)
-
-ListTests(mediumList)
-
-#very large list
-fOut.write("Large List,")
-largeList = []
-for x in range(10**8):
-    largeList.append(x)
-
-ListTests(largeList)
-
-#small dictionary
-fOut.write("Small Dictionary,")
-smallDict = {}
-for x in range(10**5):
-    smallDict[x] = x
-dictionaryTests(smallDict)
-
-#medium dictionary
-fOut.write("Medium Dictionary,")
-mediumDict = {}
-for x in range(10**7):
-    mediumDict[x] = x
-dictionaryTests(mediumDict)
-
-#large dictionary
-fOut.write("Large Dictionary,")
-largeDict = {}
-for x in range(10**8):
-    largeDict[x] = x
-dictionaryTests(largeDict)
 
 fOut.close()
+
+
 
 
 
