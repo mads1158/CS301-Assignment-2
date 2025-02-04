@@ -79,7 +79,7 @@ def dictionaryTests(demoDic):
 #small sized list
 fOut.write("Small List,")
 smallList = []
-for x in range(10**3):
+for x in range(10**5):
     smallList.append(x)
 
 ListTests(smallList)
@@ -87,7 +87,7 @@ ListTests(smallList)
 #medium sized list
 fOut.write("Medium List,")
 mediumList = []
-for x in range(10**5):
+for x in range(10**7):
     mediumList.append(x)
 
 ListTests(mediumList)
@@ -103,14 +103,14 @@ ListTests(largeList)
 #small dictionary
 fOut.write("Small Dictionary,")
 smallDict = {}
-for x in range(10**3):
+for x in range(10**5):
     smallDict[x] = x
 dictionaryTests(smallDict)
 
 #medium dictionary
 fOut.write("Medium Dictionary,")
 mediumDict = {}
-for x in range(10**5):
+for x in range(10**7):
     mediumDict[x] = x
 dictionaryTests(mediumDict)
 
